@@ -28,8 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leave_tracker'
+    'leave_tracker',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Employee_leave_tracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,22 +117,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-# STATIC FILES WILL BE SERVED FROM STATIC_CDN WHEN WE ARE LIVE - OUT SIDE OF PROJECT
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn','static_root')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-
-#THIS KEEPS THE PROJECT FILES - CSS/JS/IMAGES/FONTS
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static_in_proj','our_static'),
-]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# MEDIA - UPLOADED FILES/IMAGES
-MEDIA_URL = '/media/'
-
-# MEDIA FILES WILL BE SERVED FROM STATIC_CDN WHEN WE ARE LIVE
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn','media_root')
